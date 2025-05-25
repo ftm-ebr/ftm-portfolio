@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EchoBat</title>
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+          document.body.setAttribute('data-theme', savedTheme);
+        }
+      })();
+    </script>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/media-queries.css">
+    <link rel="stylesheet" href="css/all.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+          <img src="image/Picsart_24-11-25_16-47-10-522.png"class="header-logo"alt=""/>
+          <BUtton class="header-menu-burger" onclick="showMenu()"><i class="fa fa-bars"></i></BUtton>
+          <nav class="nav">
+            <ul class="header-menu"  id="menu">
+              <li class="header-menu-item"><a href="#"></a>خانه</a></li>
+              <li class="header-menu-item"><a href="#"></a>درباره ما</a></li>
+              <li class="header-menu-item"><a href="#"></a>تماس با ما</a></li>
+              <li class="header-menu-item"><a href="#"></a>وبلاگ</a></li>
+            </ul>
+          </nav>
+
+        <div class="left-header">
+          <i class="fa fa-search pointerx"></i>
+          <i id="theme-toggle-icon" class="fa-solid fa-sun pointer"></i>
+          <i class="fa-solid fa-user-plus signup-icon pointer openModal"></i>
+          <button class="signup-btn pointer openModal">ثبت نام</button>
+        </div>
+
+        <div class="modal" id="signupModal">
+          <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>ورود به دنیای گیم</h2>
+            <form id="signupForm">
+              <label>ایمیل:</label>
+              <input type="text" id="email">
+              <div class="error" id="emailError"></div>
+        
+              <label>رمز عبور:</label>
+              <input type="password" id="password">
+              <div class="error" id="passwordError"></div>
+        
+              <button type="submit">ثبت‌نام</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </header>
+
+<main>
+  <section class="slider">
+    <div class="slides">
+      <div class="slide active">
+        <img src="image/wp13881285-gta-vi-sunset-heist-wallpapers.png" alt="GTA 6">
+        <div class="slide-caption">
+          <h2>GTA VI رسماً تایید شد</h2>
+          <p>راک‌استار اعلام کرد بازی GTA VI در پاییز 2025 عرضه خواهد شد.</p>
+          <a href="#">مشاهده خبر</a>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="image/MW_Teaser_Claws_4K_Legal-scaled.jpg" alt="Wolverine PS5">
+        <div class="slide-caption">
+          <h2>تریلر جدید Wolverine PS5 منتشر شد</h2>
+          <p>بازی جدید از مارول با گرافیکی خارق‌العاده و اکشن سنگین.</p>
+          <a href="#">مشاهده خبر</a>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="image/wp15107998.jpg" alt="Elden Ring DLC">
+        <div class="slide-caption">
+          <h2>DLC جدید Elden Ring در راه است</h2>
+          <p>توسعه‌دهندگان قول تجربه‌ای تاریک‌تر و سخت‌تر را داده‌اند.</p>
+          <a href="#">مشاهده خبر</a>
+        </div>
+      </div>
+    </div>
+    <div class="slider-controls">
+      <button id="prev">&#10094;</button>
+      <button id="next">&#10095;</button>
+    </div>
+  </section>
+
+  <section class="trending-games">
+    <h2>بازی‌های ترند</h2>
+    <div class="game-grid">
+      <div class="game-card">
+        <img src="image/wp15354035-elden-ring-4k-oled-wallpapers.png" alt="Elden Ring" />
+        <h3>Elden Ring</h3>
+        <p>اکشن نقش‌آفرینی</p>
+        <button>جزئیات</button>
+      </div>
+      <div class="game-card">
+        <img src="image/wp13290363-helldivers-2-wallpapers.jpg" alt="Helldivers 2" />
+        <h3>Helldivers 2</h3>
+        <p>شوتر سوم شخص</p>
+        <button>جزئیات</button>
+      </div>  
+      <div class="game-card">
+        <img src="image/wp13290122-final-fantasy-vii-rebirth-wallpapers.jpg" alt="Final Fantasy VII Rebirth" />
+        <h3>Final Fantasy VII Rebirth</h3>
+        <p>نقش‌آفرینی ژاپنی</p>
+        <button>جزئیات</button>
+      </div>
+      <div class="game-card">
+        <img src="image/wp14346257-star-wars-outlaws-4k-wallpapers.jpg" alt="Star Wars Outlaws" />
+        <h3>Star Wars Outlaws</h3>
+        <p>اکشن ماجراجویی</p>
+        <button>جزئیات</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="latest-news">
+    <h2>جدیدترین اخبار</h2>
+    <div class="news-layout">
+      <div class="news-slider">
+        <div class="news-item active" data-index="0">
+          <img src="image/wp13881123-gta-vi-sunset-heist-wallpapers.png" alt="خبر 1" />
+          <div>
+            <h3>تریلر جدید GTA VI منتشر شد</h3>
+            <p>راک‌استار با تریلر تازه، هیجان هواداران را دوچندان کرد.</p>
+          </div>
+        </div>
+        <div class="news-item" data-index="1">
+          <img src="image/wp13980229-assassins-creed-shadows-4k-wallpapers.jpg" alt="خبر 2" />
+          <div>
+            <h3>اطلاعات جدیدی از Assassin's Creed Hexe فاش شد</h3>
+            <p>این بازی حال‌و‌هوایی تاریک‌تر از نسخه‌های قبلی دارد.</p>
+          </div>
+        </div>
+        <div class="news-item" data-index="2">
+          <img src="image/wp13951795-diablo-iv-4k-wallpapers.jpg" alt="خبر 3" />
+          <div>
+            <h3>فروش Diablo IV از 20 میلیون نسخه عبور کرد</h3>
+            <p>استودیو بلیزارد این موفقیت را جشن گرفت.</p>
+          </div>
+        </div>
+      </div>
+        <div class="main-news-display">
+        <img src="image/wp13881123-gta-vi-sunset-heist-wallpapers.png" alt="خبر اصلی" id="main-news-img" />
+        <div class="main-news-content">
+          <h3 id="main-news-title">تریلر جدید GTA VI منتشر شد</h3>
+          <p id="main-news-desc">راک‌استار با تریلر تازه، هیجان هواداران را دوچندان کرد.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="review-section">
+    <div class="section-header">
+      <h2>بررسی و نقد بازی‌ها</h2>
+    </div>
+    <div class="review-cards">
+      <div class="review-item">
+        <img src="image/wp14387584-senuas-saga-hellblade-ii-wallpapers.png" alt="Hellblade 2" />
+        <div class="review-content">
+          <h3>Hellblade II</h3>
+          <ul>
+            <li>امتیاز کلی: <span>9.2</span></li>
+            <li>گرافیک: <span>10</span></li>
+            <li>گیم‌پلی: <span>8.5</span></li>
+            <li>داستان: <span>9</span></li>
+          </ul>
+          <p>روایت روان‌شناختی با گرافیکی سینمایی که تجربه‌ای عمیق و احساسی را رقم می‌زند.</p>
+        </div>
+      </div>
+      <div class="review-item">
+        <img src="image/wp13064815-alan-wake-2-hd-wallpapers.jpg" alt="Alan Wake 2" />
+        <div class="review-content">
+          <h3>Alan Wake II</h3>
+          <ul>
+            <li>امتیاز کلی: <span>9.0</span></li>
+            <li>گرافیک: <span>9.2</span></li>
+            <li>گیم‌پلی: <span>8.8</span></li>
+            <li>داستان: <span>9.5</span></li>
+          </ul>
+          <p>روایت مرموز، دنیای دوگانه و فضاسازی عالی که تجربه‌ای منحصر به‌فرد می‌سازد.</p>
+        </div>
+      </div>
+      <div class="review-item">
+        <img src="image/wp13015645-silent-hill-2-remake-wallpapers.jpg" alt="Silent Hill 2" />
+        <div class="review-content">
+          <h3>Silent Hill 2 Remake</h3>
+          <ul>
+            <li>امتیاز کلی: <span>8.7</span></li>
+            <li>گرافیک: <span>9.5</span></li>
+            <li>گیم‌پلی: <span>8</span></li>
+            <li>داستان: <span>9</span></li>
+          </ul>
+          <p>بازسازی یک شاهکار ترسناک با وفاداری به ریشه‌ها و جلوه‌های بصری نسل نهم.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="game-categories">
+    <h2>دسته‌بندی بازی‌ها</h2>
+    <div class="container-category">
+      <div class="category-grid">
+        <div class="category-card">
+          <img src="image/wp12820908-call-of-duty-laptop-4k-wallpapers.jpg" alt="شوتر" class="category-background-image">
+          <h3>شوتر</h3>
+        </div>
+        <div class="category-card">
+          <img src="image/wp14664275-tha-last-of-us-2-4k-ps5-wallpapers.jpg" alt="اکشن" class="category-background-image">
+          <h3>اکشن</h3>
+        </div>
+        <div class="category-card">
+          <img src="image/wp7598338-fifa-21-game-wallpapers.jpg" alt="ورزشی" class="category-background-image">
+          <h3>ورزشی</h3>
+        </div>
+        <div class="category-card">
+          <img src="image/wp14060056-the-evil-within-4k-wallpapers.jpg" alt="ترسناک" class="category-background-image">
+          <h3>ترسناک</h3>
+        </div>
+        <div class="category-card">
+          <img src="image/wp10388496-uncharted-4k-wallpapers.jpg" alt="ماجراجویی" class="category-background-image">
+          <h3>ماجراجویی</h3>
+        </div>
+        <div class="category-card">
+          <img src="image/wp10340247-nfs-bmw-wallpapers.jpg" alt="مسابقه‌ای" class="category-background-image">
+          <h3>مسابقه‌ای</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trailers">
+    <h2>تریلر بازی‌ها</h2>
+    <div class="container-trailer">
+      <div class="trailer-grid">
+        <div class="trailer-card">
+          <div class="trailer-wrapper">
+            <img class="trailer-cover" src="image/wp8221270-black-myth-wukong-wallpapers.jpg" alt="کاور Black Myth">
+            <span class="play-icon">▶</span>
+            <iframe 
+              class="video-frame"
+              src="https://www.aparat.com/video/video/embed/videohash/jcc1139/vt/frame?autoplay=1"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <h3>Black Myth: Wukong</h3>
+          <p>اکشن RPG الهام‌گرفته از افسانه‌های چین با گرافیکی چشمگیر و گیم‌پلی سریع.</p>
+        </div>
+        <div class="trailer-card">
+          <div class="trailer-wrapper">
+            <img class="trailer-cover" src="image/wp14100562-star-wars-outlaws-adventure-wallpapers.jpg" alt="کاور Star Wars Outlaws">
+            <span class="play-icon">▶</span>
+            <iframe 
+              class="video-frame"
+              src="https://www.aparat.com/video/video/embed/videohash/nef7gh2/vt/frame?autoplay=1"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <h3>Star Wars: Outlaws</h3>
+          <p>اولین بازی جهان‌باز از دنیای استار وارز با داستانی در دنیای خلافکاران کهکشانی.</p>
+        </div>
+        <div class="trailer-card">
+          <div class="trailer-wrapper">
+            <img class="trailer-cover" src="image/wp13980388-assassins-creed-shadows-desktop-wallpapers.jpg" alt="کاور AC Shadows">
+            <span class="play-icon">▶</span>
+            <iframe 
+              class="video-frame"
+              src="https://www.aparat.com/video/video/embed/videohash/oubri1n/vt/frame?autoplay=1"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <h3>Assassin’s Creed: Shadows</h3>
+          <p>قسمت جدید در ژاپن فئودال با دو کاراکتر و گیم‌پلی نینجایی مخفی‌کاری.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>پربازدیدترین صفحات</h3>
+      <ul>
+        <li><a href="#">درباره ما</a></li>
+        <li><a href="#">تماس با ما</a></li>
+        <li><a href="#">دسته‌بندی بازی‌ها</a></li>
+        <li><a href="#">سوالات متداول</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>ما را دنبال کنید</h3>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-discord"></i></a>
+      </div>
+    </div>
+    <div class="footer-section">
+      <h3>عضویت در خبرنامه</h3>
+      <input type="email" id="email" placeholder="ایمیل شما" />
+      <button onclick="checkEmail()">عضویت</button>
+      <p id="msg"></p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2025 وب‌سایت خبری بازی‌ها - تمام حقوق محفوظ است.
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+  </body>
+</html>
